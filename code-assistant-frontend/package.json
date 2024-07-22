@@ -7,6 +7,7 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.7.2",
     "express": "^4.19.2",
     "ignore-styles": "^5.0.1",
     "react": "^18.3.1",
@@ -20,7 +21,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "ssr": "npm-run-all --parallel -p build  && nodemon ./build/index.js && node server/index.js  webpack --config webpack.server.js --mode=development -w ",
+    "ssr": "npm run build && node server/index.js  webpack --config webpack.server.js --mode=development -w",
+    "ssrdev": "npm-run-all --parallel -p build  && nodemon ./build/index.js && node server/index.js  webpack --config webpack.server.js --mode=development -w ",
     "dev:build-server": "NODE_ENV=development webpack --config webpack.server.js --mode=development -w",
     "dev:start": "nodemon ./build/index.js",
     "dev": "npm-run-all --parallel build dev:*"
@@ -42,5 +44,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
   }
 }

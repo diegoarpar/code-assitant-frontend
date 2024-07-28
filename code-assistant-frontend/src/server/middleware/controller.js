@@ -1,11 +1,11 @@
 const axios = require('axios');
 const Promise = require('bluebird');
 module.exports = {
-    getRecipes(req, res) {
+     async getRecipes(req, res) {
         const url = "http://localhost:8080/api/messages"
         const token = "IUzI1NiIsInR5c"
   
-        axios
+        return axios
         .get(url, {
           "headers": {"Authorization": "Bearer " + token}
         })

@@ -1,7 +1,7 @@
 // App.js
 import React, { useState } from 'react';
-import Chat from './components/Chat';
-import ConversationList from './components/ConversationList';
+import Chat from './Chat';
+import ConversationList from './ConversationList';
 
 const ChatBoard = () => {
   const [conversations, setConversations] = useState([

@@ -46,13 +46,13 @@ const App = () => {
       <div style={styles.main_header}>
         <div style={styles.header}>
           <div style={styles.navbar}>
-            <Link to="/" style={styles.nav_link}>
+            <Link to="/home/" style={styles.nav_link}>
               Home
             </Link>
-            <Link to="/about" style={styles.nav_link}>
+            <Link to="/home/about" style={styles.nav_link}>
               About
             </Link>
-            <Link to="/chatBoard" style={styles.nav_link}>
+            <Link to="/home/chatBoard" style={styles.nav_link}>
               ChatBoard
             </Link>
           </div>
@@ -60,9 +60,9 @@ const App = () => {
       </div>
 
       <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="/about" element={<About />}></Route>
-        <Route path="/chatBoard" element={<ChatBoard />}></Route>
+        <Route path="/home" element={<Home />}></Route>
+        <Route path="/home/about" element={<About />}></Route>
+        <Route path="/home/chatBoard" element={<ChatBoard />}></Route>
       </Routes>
     </div>
   );

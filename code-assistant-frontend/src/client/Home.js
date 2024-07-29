@@ -2,7 +2,7 @@ import React from "react";
 
 const HomeModule = React.lazy(() => {
   return new Promise((resolve) => setTimeout(resolve, 2000)).then(() =>
-    import("./components/HomeModule")
+    import("./HomeModule")
   );
 });
 

@@ -14,7 +14,7 @@ const Chat = ({ conversation, onSendMessage }) => {
       onSendMessage(newMessage);
       setNewMessage('');
       const rta = axios
-          .get(url, {
+          .post(url, {code: newMessage }, {
             "headers": {"Authorization": "Bearer " + token}
           })
           .then(response => {

@@ -6,7 +6,7 @@ module.exports = {
         const token = "IUzI1NiIsInR5c"
   
         return axios
-        .get(url, {
+        .post(url, {code: "diego"}, {
           "headers": {"Authorization": "Bearer " + token}
         })
         .then(response => {

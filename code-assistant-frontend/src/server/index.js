@@ -36,7 +36,7 @@ expressApp.get('*/home/*', (req, res) => {
 
 
 //Express Route
-expressApp.get('/api/recipes', (req, res) => {
+expressApp.post('/api/recipes', (req, res) => {
   
   async function getInfoAPI() {
     try {

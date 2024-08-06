@@ -4,10 +4,11 @@ import ReactDOMServer from "react-dom/server";
 import { StaticRouter } from "react-router-dom/server";
 import App from "../client/App";
 import recipeController from './middleware/controller';
+import bodyParser from 'body-parser';
 
 const expressApp = express();
 expressApp.use(express.static('public'));
-
+expressApp.use(bodyParser.json());
 
 expressApp.get('*/home/*', (req, res) => {
   const html = ReactDOMServer.renderToString(

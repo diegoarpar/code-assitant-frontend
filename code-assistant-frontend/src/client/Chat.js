@@ -4,7 +4,8 @@ import axios from 'axios';
 
 const Chat = ({ conversation, onSendMessage }) => {
   const [newMessage, setNewMessage] = useState('');
-  const url = "http://localhost:3002/api/recipes"
+  const [key, setKey] = useState('');
+  const url = "http://test.miarchivo.com.co:3002/api/recipes"
         const token = "IUzI1NiIsInR5c"
   
   
@@ -13,8 +14,9 @@ const Chat = ({ conversation, onSendMessage }) => {
     if (newMessage.trim()) {
       onSendMessage(newMessage);
       setNewMessage('');
+      setKey('');
       const rta = axios
-          .post(url, {code: newMessage }, {
+          .post(url, {code: newMessage, key: key }, {
             "headers": {"Authorization": "Bearer " + token}
           })
           .then(response => {
@@ -48,8 +50,14 @@ const Chat = ({ conversation, onSendMessage }) => {
         onChange={(e) => setNewMessage(e.target.value)}
         style={{ width: '80%', padding: '10px' }}
       />
+      <input
+        type="text"
+        value={key}
+        onChange={(e) => setKey(e.target.value)}
+        style={{ width: '80%', padding: '10px' }}
+      />
       <button onClick={(e) => handleSend(e)} style={{ padding: '10px 20px', marginLeft: '10px' }}>
-        Send 3
+        Send 
       </button>
     </div>
   );

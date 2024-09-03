@@ -5,7 +5,7 @@ import axios from 'axios';
 const Chat = ({ conversation, onSendMessage, onSendMessageComponent, onInitConversation }) => {
   const [newMessage, setNewMessage] = useState('');
   const [key, setKey] = useState('');
-  const url = "http://localhost:3002/api/recipes"
+  const url = "http://test.miarchivo.com.co:3002/api/recipes"
         const token = "IUzI1NiIsInR5c"
   
   const data = {

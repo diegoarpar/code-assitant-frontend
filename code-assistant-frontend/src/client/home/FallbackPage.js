@@ -31,22 +31,16 @@ const styles = {
     borderRadius: "0.3rem",
   },
 };
-const About = () => {
+const FallbackPage = () => {
   return (
 
       <div style={styles.container}>
         <div>
-          <h1 style={styles.heading}> Server React DOM APIs </h1>
-          <div style={styles.list}>
-            <p style={styles.list_item}>1. renderToPipeableStream</p>
-            <p style={styles.list_item}>2. renderToStaticNodeStream</p>
-            <p style={styles.list_item}>3. renderToReadableStream</p>
-            <p style={styles.list_item}>4. renderToStaticMarkup</p>
-            <p style={styles.list_item}>5. renderToString</p>
-          </div>
+          <h1 style={styles.heading}> Loading the page </h1>
+          
         </div>
       </div>
 
   );
 };
-export default About;
+export default FallbackPage;

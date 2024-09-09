@@ -1,8 +1,8 @@
 import React from "react";
 import { Link, Route, Routes } from "react-router-dom";
-import About from "./About";
-import Home from "./Home";
-import ChatBoard from "./ChatBoard";
+import About from "./about/About";
+import Home from "./home/Home";
+import ChatBoard from "./chat/ChatBoard";
 import "./App.css";
 
 const styles = {
@@ -11,7 +11,7 @@ const styles = {
     display: "flex",
     alignItem: "center",
     justifyContent: "center",
-    boxShadow: "rgba(17, 17, 26, 0.1) 0px 2px 0px",
+    boxShadow: "#4CAF50",
   },
 
   header: {
@@ -31,7 +31,7 @@ const styles = {
   nav_link: {
     textDecoration: "none",
     color: "white",
-    background: "rgb(239, 83, 102)",
+    background: "#4CAF50",
     fontSize: "1.2rem",
     padding: "0.3rem 1.6rem",
     margin: "5px",

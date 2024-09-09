@@ -1,0 +1,1 @@
+"use strict";exports.id=295,exports.ids=[295],exports.modules={295:(s,t,e)=>{e.r(t),e.d(t,{default:()=>u});var r=e(35),d=e.n(r),o=(e(15),e(732));const u=s=>{let{}=s;return(0,o.jsx)(d(),{})}}};

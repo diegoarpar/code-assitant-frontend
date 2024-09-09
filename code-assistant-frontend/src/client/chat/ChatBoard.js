@@ -27,19 +27,26 @@ const ChatBoard = () => {
       )
     );
   };
-  
-  const handleMessageComponent = (components) => {
 
-        if (!components) return;
+  const onClicLockSendButton = (value, e) => {
+       if (e != null && e.target != null) e.target.disabled = value;
+  };
+  
+  const handleMessageComponent = (components, e) => {
+        onClicLockSendButton(false, e);
+        if (!components) {
+          handleSendMessage("Not information found", "Code Assistant");
+          return;
+        }
 
           components.forEach(component => {
-            handleSendMessage(" ", " ");
-            handleSendMessage(" ", component.id);
-            component.components.forEach(subComponent => {
+            handleSendMessage("<div> <hr/> </div>", " ");
+            handleSendMessage(component.content, component.id);
+            //component.components.forEach(subComponent => {
             
-              handleSendMessage(subComponent.content, " ");
+              //handleSendMessage(subComponent.content, " ");
   
-          });
+          //});
 
         });
         
@@ -59,6 +66,7 @@ const ChatBoard = () => {
           onSendMessage={handleSendMessage}
           onSendMessageComponent={handleMessageComponent}
           onInitConversation = {handleInitConversations}
+          onClicLockSendButton = {onClicLockSendButton}
         />
       )}
     </div>

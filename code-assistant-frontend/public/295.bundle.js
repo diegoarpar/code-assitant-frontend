@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkcode_assistant_frontend=self.webpackChunkcode_assistant_frontend||[]).push([[295],{9295:(s,e,t)=>{t.r(e),t.d(e,{default:()=>c});var n=t(5708),a=t.n(n),r=(t(6540),t(4848));const c=s=>{let{}=s;return(0,r.jsx)(a(),{})}}}]);

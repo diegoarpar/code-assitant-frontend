@@ -6,7 +6,7 @@ import FormHtmlEditor from './components/FormHtmlEditor';
 const Chat = ({ conversation, onSendMessage, onSendMessageComponent, onInitConversation, onClicLockSendButton }) => {
   const [newMessage, setNewMessage] = useState('');
   const [key, setKey] = useState('');
-  const url = "http://test.miarchivo:3002/api/recipes";
+  const url = "http://test.miarchivo.com.co:3002/api/recipes";
   const token = "IUzI1NiIsInR5c";
 
   const data = {

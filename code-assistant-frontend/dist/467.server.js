@@ -1,0 +1,1 @@
+"use strict";exports.id=467,exports.ids=[467],exports.modules={467:(e,s,o)=>{o.r(s),o.d(s,{default:()=>r});var t=o(35),a=o.n(t),d=(o(15),o(732));const r=e=>{let{setMessage:s,message:o}=e;return(0,d.jsx)(a(),{className:"HiddeToolbar",onChange:e=>s(e),value:o,modules})}}};

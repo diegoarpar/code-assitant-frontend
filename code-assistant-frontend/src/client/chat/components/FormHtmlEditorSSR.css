@@ -1,0 +1,16 @@
+.HiddeToolbar {
+    & .ql-toolbar {
+        display: none;
+        border: 1px;
+    }
+    & .ql-snow {
+        border-top: 2px !important;
+        border-style: solid !important;
+        border-color: black !important;
+        max-height: 150px !important;
+        min-height: 50px !important;
+        overflow-y: scroll !important;
+        padding-bottom: 10px !important;
+        margin-bottom: 10px !important;
+    }
+}

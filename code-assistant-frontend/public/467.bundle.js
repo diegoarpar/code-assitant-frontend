@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkcode_assistant_frontend=self.webpackChunkcode_assistant_frontend||[]).push([[467],{1467:(e,s,a)=>{a.r(s),a.d(s,{default:()=>o});var n=a(5708),t=a.n(n),d=(a(6540),a(4848));const o=e=>{let{setMessage:s,message:a}=e;return(0,d.jsx)(t(),{className:"HiddeToolbar",onChange:e=>s(e),value:a,modules})}}}]);

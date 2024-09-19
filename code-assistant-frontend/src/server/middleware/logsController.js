@@ -2,7 +2,7 @@ const axios = require('axios');
 const Promise = require('bluebird');
 module.exports = {
      async getRecipes(req, res) {
-        const url = "http://localhost:3030/api/logs"
+        const url = "http://localhost:3030/api/log"
         const token = "IUzI1NiIsInR5c"
   
         return axios

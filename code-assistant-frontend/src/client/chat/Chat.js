@@ -96,6 +96,7 @@ const Chat = ({ conversation, onSendMessage, onSendMessageComponent, onInitConve
         value={key}
         onChange={(e) => setKey(e.target.value)}
         style={{ width: '80%', padding: '10px' }}
+        placeholder="Passcode token"
       />
       <button onClick={(e) => handleSend(e)} style={{ padding: '10px 20px', marginLeft: '10px' }}>
         Send 

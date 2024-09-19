@@ -3,7 +3,10 @@ import React from "react";
 import ReactDOMServer from "react-dom/server";
 import { StaticRouter } from "react-router-dom/server";
 import App from "../client/App";
-import recipeController from './middleware/suggestionController';
+import suggestionController from './middleware/suggestionController';
+import logsController from './middleware/logsController';
+import tokenController from './middleware/tokenController';
+import feedbaclController from './middleware/feedbaclController';
 import bodyParser from 'body-parser';
 
 const expressApp = express();
@@ -41,7 +44,7 @@ expressApp.post('/api/recipes', (req, res) => {
   
   async function getInfoAPI() {
     try {
-      const imageUrl = await recipeController.getRecipes(req, res);
+      const imageUrl = await suggestionController.getRecipes(req, res);
       //res.json(imageUrl); // Renderizamos la URL como JSON.
       return res.json(imageUrl.data);
     } catch (error) {
@@ -57,7 +60,7 @@ expressApp.post('/api/token', (req, res) => {
   
   async function getToken() {
     try {
-      const imageUrl = await recipeController.getRecipes(req, res);
+      const imageUrl = await tokenController.getRecipes(req, res);
       //res.json(imageUrl); // Renderizamos la URL como JSON.
       return res.json(imageUrl.data);
     } catch (error) {

@@ -3,7 +3,7 @@ import React from "react";
 import ReactDOMServer from "react-dom/server";
 import { StaticRouter } from "react-router-dom/server";
 import App from "../client/App";
-import recipeController from './middleware/controller';
+import recipeController from './middleware/suggestionController';
 import bodyParser from 'body-parser';
 
 const expressApp = express();
@@ -52,6 +52,38 @@ expressApp.post('/api/recipes', (req, res) => {
   getInfoAPI();
 });
 
+//Express Route
+expressApp.post('/api/token', (req, res) => {
+  
+  async function getToken() {
+    try {
+      const imageUrl = await recipeController.getRecipes(req, res);
+      //res.json(imageUrl); // Renderizamos la URL como JSON.
+      return res.json(imageUrl.data);
+    } catch (error) {
+      return error;
+    }
+  }
+
+  getToken();
+});
+
+
+//Express Route
+expressApp.post('/api/logs', (req, res) => {
+  
+  async function getToken() {
+    try {
+      const imageUrl = await recipeController.getLogs(req, res);
+      //res.json(imageUrl); // Renderizamos la URL como JSON.
+      return res.json(imageUrl.data);
+    } catch (error) {
+      return error;
+    }
+  }
+
+  getToken();
+});
 
 expressApp.listen(3002, () => {
   console.log("App is running on http://localhost:3002");

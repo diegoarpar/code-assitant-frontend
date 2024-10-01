@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import FormHtmlEditor from './components/FormHtmlEditor';
+import parse from 'html-react-parser'
 
 const Chat = ({ conversation, onSendMessage, onSendMessageComponent, onInitConversation, onClicLockSendButton }) => {
   const [newMessage, setNewMessage] = useState('');
@@ -72,14 +73,13 @@ const Chat = ({ conversation, onSendMessage, onSendMessageComponent, onInitConve
 
   return (
     <div style={{ padding: '20px', flexGrow: 1 }}>
-      <link rel="stylesheet" href="//cdn.quilljs.com/1.2.6/quill.snow.css"></link>
       <h2>{conversation.name}</h2>
       <div style={{ height: '400px', overflowY: 'scroll', border: '1px solid black', marginBottom: '10px' }}>
         {conversation.messages.map((message, index) => (
           <div key={index}>
             <strong>{message.sender != " "? message.sender + ":": ""} </strong>
             
-            <div dangerouslySetInnerHTML={{ __html: message.text }} />
+            {parse( message.text)}
           </div>
         ))}
       </div>
@@ -98,11 +98,11 @@ const Chat = ({ conversation, onSendMessage, onSendMessageComponent, onInitConve
         style={{ width: '80%', padding: '10px' }}
         placeholder="Passcode token"
       />
-      <button onClick={(e) => handleSend(e)} style={{ padding: '10px 20px', marginLeft: '10px' }}>
+      <button onClick={(e) => handleSend(e)} style={{width: '5%', padding: '5px 5px', marginLeft: '10px' }}>
         Send 
       </button>
         
-      <button onClick={(e) => handleInitConversation(e)} style={{ padding: '10px 20px', marginLeft: '10px' }}>
+      <button onClick={(e) => handleInitConversation(e)} style={{ width: '5%', padding: '5px 5px', marginLeft: '10px' }}>
         Clean 
       </button>
       

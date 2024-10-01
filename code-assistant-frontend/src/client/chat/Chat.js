@@ -73,6 +73,7 @@ const Chat = ({ conversation, onSendMessage, onSendMessageComponent, onInitConve
 
   return (
     <div style={{ padding: '20px', flexGrow: 1 }}>
+    <link rel="stylesheet" href="//cdn.quilljs.com/1.2.6/quill.snow.css"></link>
       <h2>{conversation.name}</h2>
       <div style={{ height: '400px', overflowY: 'scroll', border: '1px solid black', marginBottom: '10px' }}>
         {conversation.messages.map((message, index) => (

@@ -1,10 +1,10 @@
 import ReactQuill from 'react-quill';
 import React from "react";
+import HiddeToolbar from  "./FormHtmlEditorSSR.css";
 
 const FormHtmlEditorClientSSR = ({ setMessage, message }) => {
     return (
-      <div>
-        <link rel="stylesheet" href="//cdn.quilljs.com/1.2.6/quill.snow.css"></link>
+      
         <ReactQuill 
             className="HiddeToolbar"
             onChange={(e) => setMessage(e)}
@@ -13,7 +13,7 @@ const FormHtmlEditorClientSSR = ({ setMessage, message }) => {
             preserveWhitespace
         >
         </ReactQuill>
-      </div>
+      
     );
   };
 export default FormHtmlEditorClientSSR;

@@ -80,7 +80,7 @@ const Chat = ({ conversation, onSendMessage, onSendMessageComponent, onInitConve
           <div key={index}>
             <strong>{message.sender != " "? message.sender + ":": ""} </strong>
             
-            {parse( message.text)}
+             <div dangerouslySetInnerHTML={{ __html: message.text }} />
           </div>
         ))}
       </div>

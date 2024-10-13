@@ -1,0 +1,23 @@
+.code {
+    font-family: Consolas,"courier new";
+    background-color: #f1f1f1;
+    padding: 2px;
+    font-size: 80%;
+  }
+
+  p {
+    margin: 0;
+    padding: 0;
+  }
+
+  br {
+    margin: 4px;
+  }
+  
+  .tox.tox-tinymce {
+    border-color: black !important;
+    border-radius: 0;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+  }
+

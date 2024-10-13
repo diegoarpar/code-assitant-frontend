@@ -1,0 +1,25 @@
+"use strict";
+/*
+ * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+exports.id = "src_client_home_HomeModule_js";
+exports.ids = ["src_client_home_HomeModule_js"];
+exports.modules = {
+
+/***/ "./src/client/home/HomeModule.js":
+/*!***************************************!*\
+  !*** ./src/client/home/HomeModule.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n\nconst styles = {\n  container: {\n    fontFamily: 'Arial, sans-serif',\n    lineHeight: '1.6',\n    color: '#333',\n    margin: '0',\n    padding: '0',\n    textAlign: 'center'\n  },\n  header: {\n    backgroundColor: '#4CAF50',\n    color: 'white',\n    padding: '10px 0'\n  },\n  main: {\n    padding: '20px'\n  },\n  introSection: {\n    marginBottom: '30px'\n  },\n  featuresSection: {\n    marginBottom: '30px'\n  },\n  howItWorksSection: {\n    marginBottom: '30px'\n  },\n  footer: {\n    backgroundColor: '#4CAF50',\n    color: 'white',\n    padding: '10px 0',\n    position: 'absolute',\n    width: '100%',\n    bottom: '0'\n  }\n};\nconst HomeModule = () => {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", {\n    style: styles.container\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"header\", {\n    style: styles.header\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"h1\", null, \"Java Code Assistant\")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"main\", {\n    style: styles.main\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"section\", {\n    style: styles.introSection\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"h2\", null, \"Welcome to the Java Code Assistant\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"p\", null, \"Our system is designed to help developers streamline their Java development process by providing intelligent code suggestions, refactoring assistance, and best practices to write efficient, clean, and maintainable code.\")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"section\", {\n    style: styles.featuresSection\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"h3\", null, \"Features\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"ul\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"li\", null, \"Code generation and completion\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"li\", null, \"Automatic code refactoring\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"li\", null, \"Performance improvements suggestions\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"li\", null, \"Best practices recommendations for Java development\"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"section\", {\n    style: styles.howItWorksSection\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"h3\", null, \"How It Works\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"p\", null, \"The Java Code Assistant integrates seamlessly into your Java development environment, analyzing your code in real-time. It suggests optimizations, offers refactoring options, and helps ensure your code adheres to industry standards.\"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"footer\", {\n    style: styles.footer\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"p\", null, \"\\xA9 2024 Java Code Assistant. All rights reserved.\")));\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (HomeModule);\n\n//# sourceURL=webpack://code-assistant-frontend/./src/client/home/HomeModule.js?");
+
+/***/ })
+
+};
+;

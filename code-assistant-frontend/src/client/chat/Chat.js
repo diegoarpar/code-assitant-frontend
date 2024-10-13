@@ -44,6 +44,7 @@ const Chat = ({ conversation, onSendMessage, onSendMessageComponent, onInitConve
       };
   const handleSend = (e) => {
     onClicLockSendButton(true, e);
+    
     if (newMessage.trim()) {
       onSendMessage(newMessage);
       onSendMessage('Processing your information...', 'Code Assistant');
@@ -57,23 +58,26 @@ const Chat = ({ conversation, onSendMessage, onSendMessageComponent, onInitConve
             //console.log(response)
             //res.send(response) // <= send data to the client
             //console.log( response);
-            setNewMessage('');
+            //setNewMessage('');
             
             return onSendMessageComponent(response.data.components, e);
           })
           .catch(err => {
             //res.send({ err }) // <= send error
             console.log(err);
+            //setNewMessage('');
             onSendMessage('Ops... try again', 'Code Assistant');
             return onSendMessageComponent([], e);
           })
+    } else {
+      onClicLockSendButton(false, e);
     }
     //onSendMessageComponent(data.components, e);
   };
 
   return (
     <div style={{ padding: '20px', flexGrow: 1 }}>
-    <link rel="stylesheet" href="//cdn.quilljs.com/1.2.6/quill.snow.css"></link>
+    
       <h2>{conversation.name}</h2>
       <div style={{ height: '400px', overflowY: 'scroll', border: '1px solid black', marginBottom: '10px' }}>
         {conversation.messages.map((message, index) => (

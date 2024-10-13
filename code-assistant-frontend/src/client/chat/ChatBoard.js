@@ -29,7 +29,11 @@ const ChatBoard = () => {
   };
 
   const onClicLockSendButton = (value, e) => {
-       if (e != null && e.target != null) e.target.disabled = value;
+       if (e != null && e.target != null) {
+        e.target.disabled = value;
+        console.log(e.target);
+        e.target.innerText = value == true? "Processing": "Send";
+      }
   };
   
   const handleMessageComponent = (components, e) => {

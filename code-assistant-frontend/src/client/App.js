@@ -6,7 +6,6 @@ import ChatBoard from "./chat/ChatBoard";
 import Feedback from "./feedback/Feedback";
 import Logs from "./logs/Logs";
 import Token from "./token/Token";
-import "./App.css";
 
 const styles = {
   main_header: {

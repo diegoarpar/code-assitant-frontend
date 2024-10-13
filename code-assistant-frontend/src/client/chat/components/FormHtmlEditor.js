@@ -9,10 +9,12 @@ const FormHtmlEditorClient = React.lazy(() => {
   const FormHtmlEditor = ({setMessage, message}) => {
     return (
       <Suspense fallback={<span >Loading... </span>}>
-        <FormHtmlEditorClient
+
+        <FormHtmlEditorClient 
             setMessage={setMessage}
             message={message}
         />
+
       </Suspense>
     );
   };

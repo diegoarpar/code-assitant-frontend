@@ -73,8 +73,9 @@ const About = () => {
       </section>
     </main>
     <footer style={styles.footer}>
-      <p>&copy; 2024 Java Code Assistant. All rights reserved.</p>
+      <p>&copy; 2024 Java Code Assistant. All rights reserved. Any feedback to padillar001@gannon.edu</p>
     </footer>
+    
   </div>
 
   );

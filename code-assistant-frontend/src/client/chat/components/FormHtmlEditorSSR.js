@@ -16,7 +16,7 @@ const FormHtmlEditorClientSSR = ({ setMessage, message }) => {
         menubar: false,
         plugins: ['wordcount'
         ],
-        toolbar: '',
+        toolbar: 'fontsize',
         setup: function (editor) {
             editor.on("keydown", function (e) {
               if (event.keyCode == 9) {

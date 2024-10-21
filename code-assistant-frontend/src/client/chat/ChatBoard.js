@@ -73,6 +73,7 @@ const ChatBoard = () => {
           onClicLockSendButton = {onClicLockSendButton}
         />
       )}
+      
     </div>
   );
 };

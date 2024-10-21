@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import FormHtmlEditor from './components/FormHtmlEditor';
 import parse from 'html-react-parser'
+import { Button } from 'react-bootstrap';
 
 const Chat = ({ conversation, onSendMessage, onSendMessageComponent, onInitConversation, onClicLockSendButton }) => {
   const [newMessage, setNewMessage] = useState('');
@@ -103,14 +104,16 @@ const Chat = ({ conversation, onSendMessage, onSendMessageComponent, onInitConve
         style={{ width: '80%', padding: '10px' }}
         placeholder="Passcode token"
       />
-      <button onClick={(e) => handleSend(e)} style={{width: '5%', padding: '5px 5px', marginLeft: '10px' }}>
+      <Button className='btn btn-primary' onClick={(e) => handleSend(e)} style={{width: '5%', padding: '5px 5px', marginLeft: '10px' }}>
         Send 
-      </button>
+      </Button>
         
-      <button onClick={(e) => handleInitConversation(e)} style={{ width: '5%', padding: '5px 5px', marginLeft: '10px' }}>
+      <Button className='btn btn-secondary' onClick={(e) => handleInitConversation(e)} style={{ width: '5%', padding: '5px 5px', marginLeft: '10px' }}>
         Clean 
-      </button>
-      
+      </Button>
+      <footer>
+        <p>&copy; 2024 Java Code Assistant. All rights reserved. Any feedback to padillar001@gannon.edu</p>
+      </footer>
     </div>
   );
 };

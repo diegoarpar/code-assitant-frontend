@@ -72,9 +72,9 @@ const Feedback = () => {
         </p>
       </section>
     </main>
-    <footer style={styles.footer}>
-      <p>&copy; 2024 Java Code Assistant. All rights reserved.</p>
-    </footer>
+    <footer>
+        <p>&copy; 2024 Java Code Assistant. All rights reserved. Any feedback to padillar001@gannon.edu</p>
+      </footer>
   </div>
 
   );

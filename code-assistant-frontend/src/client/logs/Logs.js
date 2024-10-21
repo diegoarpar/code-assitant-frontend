@@ -1,4 +1,6 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
+import axios from 'axios';
+import { Table } from 'react-bootstrap';
 
 const styles = {
   container: {
@@ -40,43 +42,77 @@ const styles = {
   },
 };
 const Logs = () => {
+  const url = "http://test.miarchivo.com.co:3002/api/logs";
+
+  const [data, setData] = useState({});
+  const dataFake = {
+    status: null,
+    id: null,
+    content: null,
+    components: [
+      {
+        id: null,
+        content: `OPENIA: <body><h2>Sonarqube Issues</h2> <ul> <li><span style="color: red;">public static void main(String args[])</span> uses an old style for declaring the array. It is recommended to use <span style="color: green;">String[] args</span> instead for improved readability and consistency with modern Java practices.</li> </ul> <h2>Checkstyle Issues</h2> <ul> <li><span style="color: red;">public static void main(String args[])</span> does not follow the Java naming conventions for method declarations. There should be a space between the method name and the open parenthesis, and use of old array declaration style is discouraged. Recommended: <span style="color: green;">public static void main(String[] args)</span>.</li> </ul> <h2>PMD Issues</h2> <ul> <li>The order of elements in the <span style="color: red;">public static void main(String args[])</span> method declaration should prioritize using Java best practices, including using <span style="color: green;">String[] args</span>.</li> </ul> <h2>Code suggestion </h2> <ul> <li><span style="color: green;">public static void main(String[] args)</span>{ }</li> </ul> </body>`,
+      },
+      {
+        id: null,
+        content: `GEMINIS: <body><h2>Sonarqube Issues</h2><ul><li>No issues found.</li></ul><h2>Checkstyle Issues</h2><ul><li>No issues found.</li></ul><h2>PMD Issues</h2><ul><li>No issues found.</li></ul><h2>Code suggestion </h2><ul><li>Add access modifier to the main method: <br><span style="color:blue">public</span> <span style="color:green">class</span> <span style="color:purple">Main</span>{ <br> &nbsp;&nbsp;<span style="color:blue">public</span> <span style="color:blue">static</span> <span style="color:orange">void</span> <span style="color:brown">main</span>(<span style="color:blue">String</span>[] args) {<br> &nbsp;&nbsp;}<br>}</li></ul></body>`,
+      },
+      // Add more components here as needed
+    ]
+  };
+
+  const handleLogs = (e) => {
+    const rta = axios
+        .post(url, {}, {
+          "headers": {"Authorization": "Bearer " }
+        })
+        .then(response => {
+          console.log( response);
+          setData(response.data);
+          
+        })
+        .catch(err => {
+          //res.send({ err }) // <= send error
+          console.log(err);
+          //setNewMessage('');
+        });
+  };
+
+  useEffect(() => {
+    handleLogs(null);
+    //setData(dataFake);
+  }, []);
+
+  const [openIndex, setOpenIndex] = useState(null);
+
+  const toggleCollapse = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
   return (
+    <div className="container mt-4">
+      {data != null && data.components != null && data.components.map((component, index) => (
+        <div key={index}>
+          <button
+            className="btn btn-primary mb-2"
+            type="button"
+            onClick={() => toggleCollapse(index)}
+            aria-expanded={openIndex === index}
+            aria-controls={`collapseComponent${index}`}
+          >
+             Log: {component.id + (index + 1)}
+          </button>
 
-    <div style={styles.container}>
-    <header style={styles.header}>
-      <h1>Logs</h1>
-    </header>
-    <main style={styles.main}>
-      <section style={styles.infoSection}>
-        <h2>Who We Are</h2>
-        <p>
-          We are a team of passionate developers dedicated to making Java development faster, more efficient, and easier. Our Java Code Assistant was created to empower developers with tools that help them write cleaner, more maintainable code while saving time.
-        </p>
-      </section>
-
-      <section style={styles.missionSection}>
-        <h3>Our Mission</h3>
-        <p>
-          Our mission is to provide innovative, AI-driven solutions that streamline the coding experience for Java developers, helping them focus more on logic and creativity rather than repetitive tasks.
-        </p>
-      </section>
-
-      <section style={styles.contactSection}>
-        <h3>Contact Us</h3>
-        <p>
-          We'd love to hear from you! If you have any questions, feedback, or suggestions, feel free to reach out to us at:
-        </p>
-        <p style={styles.email}>
-          <strong>Email:</strong> <a href="mailto:diegoarpar@gmail.com">diegoarpar@gmail.com</a>
-          <strong>DIEGO ARMANDO PADILLA RAMIREZ</strong>
-        </p>
-      </section>
-    </main>
-    <footer style={styles.footer}>
-      <p>&copy; 2024 Java Code Assistant. All rights reserved.</p>
-    </footer>
-  </div>
-
+          <div className={`collapse ${openIndex === index ? 'show' : ''}`} id={`collapseComponent${index}`}>
+            <div className="card card-body">
+              {/* Rendering HTML content with dangerouslySetInnerHTML */}
+              <div dangerouslySetInnerHTML={{ __html: component.content }} />
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
   );
 };
 export default Logs;

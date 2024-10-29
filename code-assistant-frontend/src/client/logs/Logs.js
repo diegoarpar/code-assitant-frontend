@@ -45,6 +45,7 @@ const Logs = () => {
   const url = "http://test.miarchivo.com.co:3002/api/logs";
 
   const [data, setData] = useState({});
+  const [collapseDetail, setCollapseDetail] = useState({});
   const dataFake = {
     status: null,
     id: null,
@@ -68,7 +69,6 @@ const Logs = () => {
           "headers": {"Authorization": "Bearer " }
         })
         .then(response => {
-          console.log( response);
           setData(response.data);
           
         })
@@ -86,32 +86,38 @@ const Logs = () => {
 
   const [openIndex, setOpenIndex] = useState(null);
 
-  const toggleCollapse = (index) => {
+  const toggleCollapse = (index, component) => {
     setOpenIndex(openIndex === index ? null : index);
+    console.log(component);
+    setCollapseDetail(component);
   };
 
   return (
     <div className="container mt-4">
       {data != null && data.components != null && data.components.map((component, index) => (
-        <div key={index}>
+        <div key={index} >
           <button
             className="btn btn-primary mb-2"
             type="button"
-            onClick={() => toggleCollapse(index)}
+            onClick={() => toggleCollapse(index, component)}
             aria-expanded={openIndex === index}
             aria-controls={`collapseComponent${index}`}
           >
              Log: {component.id + (index + 1)}
           </button>
 
-          <div className={`collapse ${openIndex === index ? 'show' : ''}`} id={`collapseComponent${index}`}>
-            <div className="card card-body">
-              {/* Rendering HTML content with dangerouslySetInnerHTML */}
-              <div dangerouslySetInnerHTML={{ __html: component.content }} />
-            </div>
-          </div>
+          
         </div>
       ))}
+      {collapseDetail != null && collapseDetail.content != null  && openIndex != null &&
+        <div className={`collapse ${collapseDetail != null ? 'show' : ''}`} id={`collapseComponent${openIndex}`}>
+            <div className="card card-body">
+              <h2 className="text-center">Detail of LOG: {collapseDetail.id}</h2>
+              {/* Rendering HTML content with dangerouslySetInnerHTML */}
+              <div dangerouslySetInnerHTML={{ __html: collapseDetail.content }} />
+            </div>
+          </div>
+      }
     </div>
   );
 };

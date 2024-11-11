@@ -1,48 +1,10 @@
 import React, {useEffect, useState} from "react";
 import axios from 'axios';
 import { Table } from 'react-bootstrap';
+import {ENDPOINT} from '../config/services.constants';
 
-const styles = {
-  container: {
-    fontFamily: 'Arial, sans-serif',
-    lineHeight: '1.6',
-    color: '#333',
-    margin: '0',
-    padding: '0',
-    textAlign: 'center',
-  },
-  header: {
-    backgroundColor: '#4CAF50',
-    color: 'white',
-    padding: '10px 0',
-  },
-  main: {
-    padding: '20px',
-  },
-  infoSection: {
-    marginBottom: '30px',
-  },
-  missionSection: {
-    marginBottom: '30px',
-  },
-  contactSection: {
-    marginBottom: '30px',
-  },
-  email: {
-    fontSize: '18px',
-    color: '#333',
-  },
-  footer: {
-    backgroundColor: '#4CAF50',
-    color: 'white',
-    padding: '10px 0',
-    position: 'absolute',
-    width: '100%',
-    bottom: '0',
-  },
-};
 const Logs = () => {
-  const url = "http://test.miarchivo.com.co:3002/api/logs";
+  const url = ENDPOINT?.backend_endpoint + "logs";
 
   const [data, setData] = useState({});
   const [collapseDetail, setCollapseDetail] = useState({});
@@ -79,6 +41,17 @@ const Logs = () => {
         });
   };
 
+  const formatDateTime = function formatDateTime(dateString) {
+    const year = dateString.slice(0, 4);
+    const month = dateString.slice(4, 6);
+    const day = dateString.slice(6, 8);
+    const hour = dateString.slice(9, 11);
+    const minute = dateString.slice(11, 13);
+
+    // Format as YYYY/MM/DD HH:MM
+    return `${year}/${month}/${day} ${hour}:${minute}`;
+}
+
   useEffect(() => {
     handleLogs(null);
     //setData(dataFake);
@@ -88,36 +61,42 @@ const Logs = () => {
 
   const toggleCollapse = (index, component) => {
     setOpenIndex(openIndex === index ? null : index);
-    console.log(component);
     setCollapseDetail(component);
   };
 
   return (
+    <div>
+      <header className="header-assistant">
+        <h1>Assistant Logs</h1>
+      </header>
     <div className="container mt-4">
-      {data != null && data.components != null && data.components.map((component, index) => (
-        <div key={index} >
-          <button
-            className="btn btn-primary mb-2"
-            type="button"
-            onClick={() => toggleCollapse(index, component)}
-            aria-expanded={openIndex === index}
-            aria-controls={`collapseComponent${index}`}
-          >
-             Log: {component.id + (index + 1)}
-          </button>
-
-          
-        </div>
-      ))}
+      {data != null && data.components != null &&
+            <select
+                    className="form-select"
+                    onChange={(e) => {
+                        const index = e.target.value;
+                        toggleCollapse(index, data.components[index]);
+                    }}
+                    aria-label="Select component"
+                >
+                    <option value="" disabled selected>Select a log entry</option>
+                    {data.components.map((component, index) => (
+                        <option key={index} value={index}>
+                            Log: {formatDateTime(component.id)}
+                        </option>
+                    ))}
+                </select>
+      }
       {collapseDetail != null && collapseDetail.content != null  && openIndex != null &&
         <div className={`collapse ${collapseDetail != null ? 'show' : ''}`} id={`collapseComponent${openIndex}`}>
             <div className="card card-body">
-              <h2 className="text-center">Detail of LOG: {collapseDetail.id}</h2>
+              <h2 className="text-center">Detail of LOG: {formatDateTime(collapseDetail.id)}</h2>
               {/* Rendering HTML content with dangerouslySetInnerHTML */}
               <div dangerouslySetInnerHTML={{ __html: collapseDetail.content }} />
             </div>
           </div>
       }
+    </div>
     </div>
   );
 };

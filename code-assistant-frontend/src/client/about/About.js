@@ -42,39 +42,36 @@ const styles = {
 const About = () => {
   return (
 
-    <div style={styles.container}>
-    <header style={styles.header}>
+    <div>
+    <header className="header-assistant">
       <h1>About Us</h1>
     </header>
-    <main style={styles.main}>
-      <section style={styles.infoSection}>
-        <h2>Who We Are</h2>
-        <p>
+    <main className="text-center">
+      <section >
+        <h2 className="pt-5">Who We Are</h2>
+        <span>
           We are a team of passionate developers dedicated to making Java development faster, more efficient, and easier. Our Java Code Assistant was created to empower developers with tools that help them write cleaner, more maintainable code while saving time.
-        </p>
+        </span>
       </section>
 
-      <section style={styles.missionSection}>
-        <h3>Our Mission</h3>
-        <p>
+      <section >
+        <h3 className="pt-5">Our Mission</h3>
+        <span>
           Our mission is to provide innovative, AI-driven solutions that streamline the coding experience for Java developers, helping them focus more on logic and creativity rather than repetitive tasks.
-        </p>
+        </span>
       </section>
 
-      <section style={styles.contactSection}>
-        <h3>Contact Us</h3>
-        <p>
+      <section >
+        <h3 className="pt-5">Contact Us</h3>
+        <span>
           We'd love to hear from you! If you have any questions, feedback, or suggestions, feel free to reach out to us at:
-        </p>
-        <p style={styles.email}>
+        </span>
+        <span>
           <strong>Email:</strong> <a href="mailto:diegoarpar@gmail.com">diegoarpar@gmail.com</a>
           <strong>DIEGO ARMANDO PADILLA RAMIREZ</strong>
-        </p>
+        </span>
       </section>
     </main>
-    <footer style={styles.footer}>
-      <p>&copy; 2024 Java Code Assistant. All rights reserved. Any feedback to padillar001@gannon.edu</p>
-    </footer>
     
   </div>
 

@@ -7,68 +7,42 @@ import Feedback from "./feedback/Feedback";
 import Logs from "./logs/Logs";
 import Token from "./token/Token";
 
-const styles = {
-  main_header: {
-    backgroundColor: "white",
-    display: "flex",
-    alignItem: "center",
-    justifyContent: "center",
-    boxShadow: "#4CAF50",
-  },
-
-  header: {
-    padding: "0.6rem",
-    width: "85rem",
-    display: "flex",
-    alignItem: "center",
-    justifyContent: "center",
-  },
-
-  navbar: {
-    display: "flex",
-    alignItem: "center",
-    justifyContent: "center",
-  },
-
-  nav_link: {
-    textDecoration: "none",
-    color: "white",
-    background: "#4CAF50",
-    fontSize: "1.2rem",
-    padding: "0.3rem 1.6rem",
-    margin: "5px",
-    border: "1px solid white",
-    borderRadius: "0.3rem",
-  },
-};
-
 const App = () => {
   return (
     <div>
-      <div style={styles.main_header}>
-        <div style={styles.header}>
-          <div style={styles.navbar}>
-            <Link to="/home/" style={styles.nav_link}>
+    <div className="nav">
+      <input className="nav-input" type="checkbox" />
+        <span className="first-span"></span>
+        <span></span>
+        <div className="menu">
+          <li
+          ><Link to="/home/">
               Home
             </Link>
-            <Link to="/home/about" style={styles.nav_link}>
+          </li>
+          <li><Link to="/home/about">
               About
             </Link>
-            <Link to="/home/chatBoard" style={styles.nav_link}>
-              ChatBoard
+          </li>
+          <li><Link to="/home/chatBoard">
+             Code Assistant
             </Link>
-            <Link to="/home/logs" style={styles.nav_link}>
+          </li>
+          <li><Link to="/home/logs">
               Logs
+            </Link></li>
+          <li>
+            <Link to="/home/token">
+             Get Token
             </Link>
-            <Link to="/home/token" style={styles.nav_link}>
-              Get Token
-            </Link>
-          </div>
+          </li>
         </div>
-      </div>
+    </div>
+
+
 
       <Routes>
-        <Route path="/"element={<Home />}></Route>
+        <Route path="/" element={<Home />}></Route>
         <Route path="/home" element={<Home />}></Route>
         <Route path="/home/about" element={<About />}></Route>
         <Route path="/home/chatBoard" element={<ChatBoard />}></Route>
@@ -76,6 +50,9 @@ const App = () => {
         <Route path="/home/token" element={<Token />}></Route>
         <Route path="/home/feedback" element={<Feedback />}></Route>
       </Routes>
+      <footer className="footer-assistant">
+        <p>&copy; 2024 Java Code Assistant. All rights reserved. Any feedback to padillar001@gannon.edu</p>
+      </footer>
     </div>
   );
 };

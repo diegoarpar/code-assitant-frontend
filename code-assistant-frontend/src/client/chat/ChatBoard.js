@@ -31,7 +31,6 @@ const ChatBoard = () => {
   const onClicLockSendButton = (value, e) => {
        if (e != null && e.target != null) {
         e.target.disabled = value;
-        console.log(e.target);
         e.target.innerText = value == true? "Processing": "Send";
       }
   };
@@ -59,11 +58,8 @@ const ChatBoard = () => {
   const currentConversation = conversations.find(conversation => conversation.id === currentConversationId);
 
   return (
-    <div style={{ display: 'flex' }}>
-      <ConversationList
-        conversations={conversations}
-        onSelectConversation={setCurrentConversationId}
-      />
+    <div>
+      
       {currentConversation && (
         <Chat
           conversation={currentConversation}

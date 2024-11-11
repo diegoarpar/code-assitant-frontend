@@ -1,18 +1,19 @@
 import React, { Suspense } from "react";
 
 const FormHtmlEditorClient = React.lazy(() => {
-    return new Promise((resolve) => setTimeout(resolve, 2000)).then(() =>
+    return new Promise((resolve) => setTimeout(resolve, 100)).then(() =>
       import("./FormHtmlEditorSSR")
     );
   });
   
-  const FormHtmlEditor = ({setMessage, message}) => {
+  const FormHtmlEditor = ({setMessage, message, setEditorReference}) => {
     return (
       <Suspense fallback={<span >Loading... </span>}>
 
         <FormHtmlEditorClient 
             setMessage={setMessage}
             message={message}
+            setEditorReference={setEditorReference}
         />
 
       </Suspense>

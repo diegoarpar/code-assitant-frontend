@@ -4,11 +4,13 @@ import axios from 'axios';
 import FormHtmlEditor from './components/FormHtmlEditor';
 import parse from 'html-react-parser'
 import { Button } from 'react-bootstrap';
+import  {ENDPOINT}  from '../config/services.constants';
 
 const Chat = ({ conversation, onSendMessage, onSendMessageComponent, onInitConversation, onClicLockSendButton }) => {
   const [newMessage, setNewMessage] = useState('');
   const [key, setKey] = useState('');
-  const url = "http://test.miarchivo.com.co:3002/api/recipes";
+  const [editorRef, setEditorRef] = useState(null);
+  const url = ENDPOINT?.backend_endpoint + "recipes";
   const token = "IUzI1NiIsInR5c";
 
   const data = {
@@ -40,9 +42,17 @@ const Chat = ({ conversation, onSendMessage, onSendMessageComponent, onInitConve
   };
   
       
-      const handleInitConversation = (e) => {
-        onInitConversation();
-      };
+  const handleInitConversation = (e) => {
+    if (editorRef != null && editorRef.current != null) {
+      editorRef.current.setContent("");
+    }
+    onInitConversation(); 
+  };
+
+  const setEditorReference = (e) => {
+    setEditorRef(e);
+  };
+
   const handleSend = (e) => {
     onClicLockSendButton(true, e);
     
@@ -77,10 +87,12 @@ const Chat = ({ conversation, onSendMessage, onSendMessageComponent, onInitConve
   };
 
   return (
-    <div style={{ padding: '20px', flexGrow: 1 }}>
-    
-      <h2>{conversation.name}</h2>
-      <div style={{ height: '400px', overflowY: 'scroll', border: '1px solid black', marginBottom: '10px' }}>
+    <div className='assistant-chat-results-page'>
+      <header className="header-assistant">
+        <h1>Assistant Chat</h1>
+      </header>
+      
+      <div className='assistant-chat-results' >
         {conversation.messages.map((message, index) => (
           <div key={index}>
             <strong>{message.sender != " "? message.sender + ":": ""} </strong>
@@ -90,30 +102,31 @@ const Chat = ({ conversation, onSendMessage, onSendMessageComponent, onInitConve
         ))}
       </div>
       <div>
-
-      <FormHtmlEditor
-        message={newMessage}
-        setMessage={setNewMessage}
-       
-      />
-      </div>
-      <input
-        type="text"
-        value={key}
-        onChange={(e) => setKey(e.target.value)}
-        style={{ width: '80%', padding: '10px' }}
-        placeholder="Passcode token"
-      />
-      <Button className='btn btn-primary' onClick={(e) => handleSend(e)} style={{width: '5%', padding: '5px 5px', marginLeft: '10px' }}>
-        Send 
-      </Button>
+      <div className='assistant-chat-text'>
+        <FormHtmlEditor
+          message={newMessage}
+          setMessage={setNewMessage}
+          setEditorReference={setEditorReference}
+        />
         
-      <Button className='btn btn-secondary' onClick={(e) => handleInitConversation(e)} style={{ width: '5%', padding: '5px 5px', marginLeft: '10px' }}>
-        Clean 
-      </Button>
-      <footer>
-        <p>&copy; 2024 Java Code Assistant. All rights reserved. Any feedback to padillar001@gannon.edu</p>
-      </footer>
+        <div className='col-16'>
+          <input
+            type="text"
+            value={key}
+            onChange={(e) => setKey(e.target.value)}
+            style={{ width: '60%', margin: '10px' }}
+            placeholder="Passcode token"
+          />
+          <Button className='btn btn-primary' onClick={(e) => handleSend(e)} style={{ width: '10%', margin: '10px' }}>
+            Send 
+          </Button>
+            
+          <Button className='btn btn-secondary' onClick={(e) => handleInitConversation(e)} style={{ width: '10%', margin: '10px' }}>
+            Clean 
+          </Button>
+        </div>
+        </div>
+      </div>
     </div>
   );
 };

@@ -25,7 +25,7 @@ expressApp.get('*/home/*', (req, res) => {
   <html lang="en">
     <head>
       <meta charset="utf-8">
-      <title>SSR React App</title>
+      <title>Code Assistant AI</title>
     </head>
     <body>
       <div id="root">${html}</div>

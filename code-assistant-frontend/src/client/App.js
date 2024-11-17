@@ -10,7 +10,7 @@ import Token from "./token/Token";
 const App = () => {
   return (
     <div>
-    <div className="nav">
+    <div className="nav nave-menu-assistant">
       <input className="nav-input" type="checkbox" />
         <span className="first-span"></span>
         <span></span>

@@ -46,7 +46,7 @@
     padding: 10px 0;
     text-align: center;
     font-family: 'Roboto', sans-serif;
-    position: fixed;
+    position: inherit;
   }
 
 .navbar .btn-success {
@@ -70,6 +70,11 @@
   box-shadow: 0 8px 15px rgba(0,0,0,.2);
   opacity: 0.9;
   margin-left: -20px;
+  height: 50px;
+}
+
+.nav:hover {
+  height: 150px;
 }
 
 .menu {
@@ -80,13 +85,28 @@
   transition: 0.5s;
 }
 
-.nav-input:checked ~ .menu {
+.nav-input:hover  ~ .menu {
+  width: 150px;
+  height: 100%;
+}
+
+.menu:hover {
+  width: 150px;
+  height: 100%;
+}
+
+.first-span:hover  ~ .menu {
+  width: 150px;
+  height: 100%;
+}
+
+.nav-input:hover ~ .menu {
   width: 150px;
   height: 100%;
 }
 
 
-.nav input:not(checked) ~ .menu {
+.nav input {
   height: 20px;
 }
 
@@ -129,7 +149,8 @@
   background-color: #ffffff !important;
   border-radius: 0px !important;
 }
-.nav input:checked ~ span {
+
+.nav:hover ~ span {
   background-color: #666;
 }
 
@@ -137,20 +158,21 @@
   transform: translateY(-8px);
 }
 
-.nav input:checked ~ span:nth-child(2) {
+.nav:hover ~ span:nth-child(2) {
   transform: translateY(0) rotate(-45deg);
 }
 .nav span:nth-child(3) {
   transform: translateY(8px);
 }
 
-.nav input:checked ~ span:nth-child(3) {
+.nav:hover ~ span:nth-child(3) {
   transform: translateY(0) rotate(45deg);
 }
 
 .assistant-chat-results {
   height: calc(100vh  - 50vh);
-  width: 100%; 
+  width: 98%; 
+  margin: 10px;
   overflow-y: scroll; 
   border: 2px solid black;
   margin-bottom: 10px;
@@ -158,4 +180,10 @@
 
 .assistant-chat-text {
   height: calc(100vh  - 67vh);
+  margin: 10px;
+  width: 98%; 
+  padding-bottom: 40px;
+  margin-bottom: 40px;
 }
+
+

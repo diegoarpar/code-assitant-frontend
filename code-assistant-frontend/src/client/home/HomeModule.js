@@ -38,7 +38,7 @@ const styles = {
 
 const HomeModule = () => {
   return (
-    <div className="text-center">
+    <div className="text-center min-vh-100" id="home">
       <header className="header-assistant">
         <h1>Welcome to the Java Code Assistant</h1>
       </header>

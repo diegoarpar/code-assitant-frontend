@@ -7,6 +7,7 @@ const Logs = () => {
   const url = ENDPOINT?.backend_endpoint + "logs";
 
   const [data, setData] = useState({});
+  const [buttonLabel, setButtonLabel] = useState("Refresh logs list");
   const [collapseDetail, setCollapseDetail] = useState({});
   const dataFake = {
     status: null,
@@ -26,11 +27,16 @@ const Logs = () => {
   };
 
   const handleLogs = (e) => {
+    setButtonLabel("Processing...");
+    setCollapseDetail({});
+    toggleCollapse(-1, {});
+    setData({});
     const rta = axios
         .post(url, {}, {
           "headers": {"Authorization": "Bearer " }
         })
         .then(response => {
+          setButtonLabel("Refresh list")
           setData(response.data);
           
         })
@@ -38,6 +44,7 @@ const Logs = () => {
           //res.send({ err }) // <= send error
           console.log(err);
           //setNewMessage('');
+          setButtonLabel("Refresh list")
         });
   };
 
@@ -65,11 +72,15 @@ const Logs = () => {
   };
 
   return (
-    <div>
+    <div id="logs" className="min-vh-100">
       <header className="header-assistant">
         <h1>Assistant Logs</h1>
       </header>
+      
     <div className="container mt-4">
+      <div className="row col pt-2 pb-2">
+      
+        <div className="col-4"> 
       {data != null && data.components != null &&
             <select
                     className="form-select"
@@ -87,6 +98,12 @@ const Logs = () => {
                     ))}
                 </select>
       }
+      </div>
+      <div className="col-4"> 
+
+        <button className="btn btn-primary" onClick={() => handleLogs()}>{buttonLabel}</button>
+        </div>
+      </div>
       {collapseDetail != null && collapseDetail.content != null  && openIndex != null &&
         <div className={`collapse ${collapseDetail != null ? 'show' : ''}`} id={`collapseComponent${openIndex}`}>
             <div className="card card-body">

@@ -8,6 +8,43 @@ import Logs from "./logs/Logs";
 import Token from "./token/Token";
 
 const App = () => {
+  const scrollToSection = (event, id) => {
+    if (event != null) {
+      event.preventDefault(); // Prevent the default anchor behavior
+    }
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+
+    const targetPosition = section.offsetTop;
+    const startPosition = window.scrollY;
+    const distance = targetPosition - startPosition;
+    const duration = 2000; // Duration in milliseconds
+    let startTime = null;
+
+    const animation = (currentTime) => {
+      if (startTime === null) startTime = currentTime;
+      const timeElapsed = currentTime - startTime;
+      const run = easeInOutQuad(timeElapsed, startPosition, distance, duration);
+      window.scrollTo(0, run);
+
+      if (timeElapsed < duration) requestAnimationFrame(animation);
+    };
+
+    const easeInOutQuad = (t, b, c, d) => {
+      t /= d / 2;
+      if (t < 1) return (c / 2) * t * t + b;
+      t--;
+      return (-c / 2) * (t * (t - 2) - 1) + b;
+    };
+
+    
+
+    requestAnimationFrame(animation);
+      
+    }
+  };
+  
   return (
     <div>
     <div className="nav nave-menu-assistant">
@@ -15,25 +52,25 @@ const App = () => {
         <span className="first-span"></span>
         <span></span>
         <div className="menu">
-          <li
-          ><Link to="/home/">
+          <li onClick={(e) => scrollToSection(e, "home")}><Link to="#home" >
               Home
             </Link>
           </li>
-          <li><Link to="/home/about">
-              About
-            </Link>
-          </li>
-          <li><Link to="/home/chatBoard">
+          
+          <li onClick={(e) => scrollToSection(e, "chat")}><Link to="#chat" >
              Code Assistant
             </Link>
           </li>
-          <li><Link to="/home/logs">
+          <li onClick={(e) => scrollToSection(e, "logs")}><Link to="#logs" >
               Logs
             </Link></li>
-          <li>
-            <Link to="/home/token">
+          <li onClick={(e) => scrollToSection(e, "token")}>
+            <Link to="#token" >
              Get Token
+            </Link>
+          </li>
+          <li onClick={(e) => scrollToSection(e, "about")}><Link to="#about" >
+              About
             </Link>
           </li>
         </div>

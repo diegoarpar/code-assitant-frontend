@@ -58,7 +58,7 @@ const ChatBoard = () => {
   const currentConversation = conversations.find(conversation => conversation.id === currentConversationId);
 
   return (
-    <div>
+    <div id="chat">
       
       {currentConversation && (
         <Chat

@@ -42,7 +42,7 @@ const styles = {
 const About = () => {
   return (
 
-    <div>
+    <div id="about" className="min-vh-100">
     <header className="header-assistant">
       <h1>About Us</h1>
     </header>

@@ -38,7 +38,7 @@ const Token = () => {
   };
 
   return (
-    <div>
+    <div id="token" className="min-vh-100">
   <header className="header-assistant">
       <h1>Token</h1>
     </header> 

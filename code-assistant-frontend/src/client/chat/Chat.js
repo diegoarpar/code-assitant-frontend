@@ -60,7 +60,7 @@ const Chat = ({ conversation, onSendMessage, onSendMessageComponent, onInitConve
       onSendMessage(newMessage);
       onSendMessage('Processing your information...', 'Code Assistant');
       
-      setKey('');
+
       const rta = axios
           .post(url, {code: newMessage, key: key }, {
             "headers": {"Authorization": "Bearer " + token}

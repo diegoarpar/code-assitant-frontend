@@ -81,11 +81,11 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/home" element={<Home />}></Route>
-        <Route path="/home/about" element={<About />}></Route>
-        <Route path="/home/chatBoard" element={<ChatBoard />}></Route>
-        <Route path="/home/logs" element={<Logs />}></Route>
-        <Route path="/home/token" element={<Token />}></Route>
-        <Route path="/home/feedback" element={<Feedback />}></Route>
+        <Route path="/home/about" element={<Home />}></Route>
+        <Route path="/home/chatBoard" element={<Home />}></Route>
+        <Route path="/home/logs" element={<Home />}></Route>
+        <Route path="/home/token" element={<Home />}></Route>
+        <Route path="/home/feedback" element={<Home />}></Route>
       </Routes>
       <footer className="footer-assistant">
         <p>&copy; 2024 Java Code Assistant. All rights reserved. Any feedback to padillar001@gannon.edu</p>
